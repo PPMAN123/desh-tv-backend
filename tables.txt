@@ -1,0 +1,32 @@
+CREATE TABLE `articles` (
+	`slug` varchar(2048) NOT NULL,
+	`image_data` longtext,
+	`title` varchar(500),
+	`category_id` int NOT NULL,
+	`translated_date` date NOT NULL,
+	`paragraphs` text NOT NULL,
+	`created_at` timestamp NULL DEFAULT current_timestamp(),
+	`id` int unsigned NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `unique_title_date` (`title`, `translated_date`),
+	KEY `category_id_index` (`category_id`)
+) ENGINE InnoDB,
+  CHARSET utf8mb4,
+  COLLATE utf8mb4_0900_ai_ci;
+
+CREATE TABLE `categories` (
+	`id` int unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(50) NOT NULL,
+	`slug` text NOT NULL,
+	PRIMARY KEY (`id`)
+) ENGINE InnoDB,
+  CHARSET utf8mb4,
+  COLLATE utf8mb4_0900_ai_ci;
+
+CREATE TABLE `recommended_articles` (
+	`article_id` int NOT NULL,
+	`recommended_article_id` int NOT NULL,
+	PRIMARY KEY (`article_id`, `recommended_article_id`)
+) ENGINE InnoDB,
+  CHARSET utf8mb4,
+  COLLATE utf8mb4_0900_ai_ci;
