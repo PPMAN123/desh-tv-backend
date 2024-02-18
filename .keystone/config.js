@@ -244,7 +244,7 @@ var keystone_default = withAuth(
   (0, import_core4.config)({
     db: {
       provider: "mysql",
-      url: process.env.DATABASE_URL ?? "mysql://93vujuxtabq3uvqp89gj:pscale_pw_of6j15OITewuCYMwSNeeySlMoyB67eesc3Ggvx0Nf8u@aws.connect.psdb.cloud/desh-tv-clone-backend?sslaccept=strict",
+      url: process.env.DATABASE_URL ?? "mysql://glzj2bfqnshmew6i6qfd:pscale_pw_ngnIAh4vCu54y38T3jigdHj0B1iLx3gUrfRm1LtI2DC@aws.connect.psdb.cloud/desh-tv-clone-backend?sslaccept=strict",
       additionalPrismaDatasourceProperties: {
         relationMode: "prisma"
       },
@@ -255,7 +255,7 @@ var keystone_default = withAuth(
     lists,
     session,
     server: {
-      port: 3333
+      port: Number(process.env.BASE_PORT)
     },
     storage: {
       my_images: {
